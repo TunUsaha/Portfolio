@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="icon" href="icon/logo.svg" type="image/svg+xml" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the current page name from the URL
+        const currentPage = window.location.pathname.split("/").pop(); // Get the file name from the URL
+
+        // Set the title based on the page name
+        let pageTitle = "";
+        switch (currentPage) {
+          case "index.html":
+            pageTitle = "Home";
+            break;
+          case "Project.html":
+            pageTitle = "Project";
+            break;
+          case "aboutme.html":
+            pageTitle = "About Me";
+            break;
+          default:
+            pageTitle = "Welcome"; // If the file name does not match the above, show "Welcome"
+        }
+        // Set the title
+        document.querySelector("h1").textContent = pageTitle;
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Auto-show function
+        const autoShowElements = document.querySelectorAll(".autoShow");
+
+        const autoShowObserverOptions = {
+          root: null, // Use the viewport as the root
+          rootMargin: "0px",
+          threshold: 0.5, // Show when 50% of the element is visible
+        };
+
+        const autoShowObserverCallback = (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible"); // When the element is visible, add the class
+            } else {
+              entry.target.classList.remove("visible"); // When the element is hidden, remove the class
+            }
+          });
+        };
+
+        const autoShowObserver = new IntersectionObserver(
+          autoShowObserverCallback,
+          autoShowObserverOptions
+        );
+        autoShowElements.forEach((element) => {
+          autoShowObserver.observe(element);
+        });
+
+        // Auto-blur function
+        const autoBlurElements = document.querySelectorAll(".autoBLur");
+
+        const autoBlurObserverOptions = {
+          root: null, // Use the viewport as the root
+          rootMargin: "0px",
+          threshold: 0.8, // Show when 80% of the element is visible
+        };
+
+        const autoBlurObserverCallback = (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.intersectionRatio >= 0.8) {
+              entry.target.classList.add("autoClear"); // When the element is visible, add the class
+              entry.target.classList.remove("autoBLur"); // Remove the blur class
+            } else {
+              entry.target.classList.add("autoBLur"); // When the element is hidden, add the blur class
+              entry.target.classList.remove("autoClear"); // Remove the clear class
+            }
+          });
+        };
+
+        const autoBlurObserver = new IntersectionObserver(
+          autoBlurObserverCallback,
+          autoBlurObserverOptions
+        );
+        autoBlurElements.forEach((element) => {
+          autoBlurObserver.observe(element);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1></h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Product</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="home-page">
+      <section class="home-banner">
+        <div class="home-content">
+          <h1 class="left">Portfolio</h1>
+          <div class="information">
+            <h2 class="right">Tun Usaha</h2>
+            <p class="right">Web Portfolio</p>
+            <div class="banner-title">
+              <p>
+                Welcome to my portfolio! I am currently pursuing a Bachelor of
+                Science in Modern Management Information Technology at Chiang
+                Mai University.
+              </p>
+              <p>
+                This website showcases my journey and passion for technology,
+                and I continuously strive to improve and share my progress.
+              </p>
+            </div>
+          </div>
+          <div class="image">
+            <img src="images/content1.png" alt="Tun Usaha" />
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-1">
+        <figure>
+          <img src="images/sich.png" alt="AI and Machine Learning" />
+        </figure>
+        <figure>
+          <img src="images/3.png" alt="Project Work" class="autoRotate" />
+        </figure>
+        <h2 class="autoShow">Introduce</h2>
+      </section>
+
+      <section class="grid grid-2">
+        <div class="autoShow">
+          <figure>
+            <img src="images/6.png" alt="Design Thinking" />
+          </figure>
+          <p>
+            I have gained hands-on experience in solving real-world challenges,
+            particularly through the Sustainable Innovation Camp with Singapore
+            Polytechnic. This camp allowed me to apply Design Thinking to create
+            sustainable solutions for communities in Chiang Mai and Lamphun. My
+            interests include blending creativity with data analytics to solve
+            complex problems.
+          </p>
+        </div>
+
+        <div class="autoShow">
+          <p>
+            Cybersecurity is one of my key interests in the digital world. I am
+            fascinated by the field's dynamic nature and the ongoing challenges
+            of securing information and systems. My passion for cybersecurity
+            aligns with my desire to make the digital world safer for
+            individuals and businesses alike.
+          </p>
+        </div>
+
+        <div class="autoShow">
+          <figure>
+            <img src="images/Content2.png" alt="" />
+          </figure>
+          <p>
+            Throughout my academic journey, I have focused on machine learning
+            applications and AI development. I am actively expanding my skill
+            set through personal projects on Kaggle, working on real-world
+            datasets and experimenting with various machine learning algorithms
+            to improve model performance.
+          </p>
+        </div>
+
+        <div class="autoBLur">
+          <figure>
+            <img src="images/candy.png" alt="AI Tools" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="grid grid-3">
+        <div class="autoBLur">TUNUSAHA</div>
+        <div class="autoBLur">AI DEVELOPER</div>
+        <div class="autoBLur">DATA ANALYST</div>
+      </section>
+
+      <footer>
+        <div class="container">
+          &#xA9; Portfolio Tun Usaha AKA TunThunTan. <br />
+          <a href="mailto:ahasunut@gmail.com">ahanutsunut@gmail.com</a> |
+          <a href="https://github.com/TunUsaha" target="_blank"
+            >GitHub: @TunUsaha</a
+          >
+          |
+          <a href="https://www.kaggle.com/tunusaha" target="_blank"
+            >Kaggle: @tunusaha</a
+          >
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
+
