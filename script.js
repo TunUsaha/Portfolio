@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     default:
       pageTitle = "Welcome"; // If the file name does not match the above, show "Welcome"
   }
-
   // Set the title
   document.querySelector("h1").textContent = pageTitle;
 });
