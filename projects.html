@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="icon" href="icon/logo.svg" type="image/svg+xml" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>My Portfolio</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="home-page">
+      <section class="home-banner">
+        <div class="home-content">
+          <h1 class="left">Projects</h1>
+          <div class="information">
+            <h2 class="right">Tun Usaha</h2>
+            <p class="right">Web Portfolio</p>
+            <div class="banner-title">
+              <p>
+                Welcome to my portfolio! I am currently pursuing a Bachelor of
+                Science in Modern Management Information Technology at Chiang
+                Mai University.
+              </p>
+              <p>
+                This website showcases my journey and passion for technology,
+                and I continuously strive to improve and share my progress.
+              </p>
+            </div>
+          </div>
+          <div class="image">
+            <img src="images/klipartz.png" alt="Tun Usaha" />
+          </div>
+        </div>
+      </section>
+
+      <section class="projects">
+            <div class="project-cards" id="project-cards"></div>
+      </section>
+      <section class="grid grid-3">
+        <div class="autoBLur">TUNUSAHA</div>
+        <div class="autoBLur">AI DEVELOPER</div>
+        <div class="autoBLur">DATA ENGINEER</div>
+      </section>
+      <footer>
+        <div class="container">
+          <a href="https://github.com/TunUsaha" target="_blank"
+          >GitHub: @TunUsaha</a>
+          |
+          <a href="https://www.kaggle.com/tunusaha" target="_blank"
+          >Kaggle: @tunusaha</a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      async function fetchGitHubRepos() {
+        const username = "TunUsaha"; // แทนที่ด้วยชื่อ GitHub ของคุณ
+        const url = `https://api.github.com/users/${username}/repos`;
+
+        try {
+          const response = await fetch(url);
+          const repos = await response.json();
+          if (repos.length > 0) {
+            displayProjects(repos);
+          } else {
+            console.log("No repositories found.");
+          }
+        } catch (error) {
+          console.error("Error fetching GitHub repos:", error);
+        }
+      }
+
+      // ฟังก์ชันแสดงข้อมูล repositories ใน HTML
+      function displayProjects(repos) {
+        const projectCards = document.getElementById("project-cards");
+        projectCards.innerHTML = "";
+
+        repos.forEach((repo) => {
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          // เพิ่มรูปภาพที่มุมขวาบนและมุมซ้ายล่าง
+          const topRightImage = document.createElement("img");
+          topRightImage.classList.add("corner-image", "top-right");
+          topRightImage.src = "images/image10.png"; // กำหนดที่อยู่ของภาพมุมขวาบน
+
+          const bottomLeftImage = document.createElement("img");
+          bottomLeftImage.classList.add("corner-image", "bottom-left");
+          bottomLeftImage.src = "images/image10 Background Removed.png"; // กำหนดที่อยู่ของภาพมุมซ้ายล่าง
+
+          card.innerHTML = `
+      <a href="${repo.html_url}" target="_blank">
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description available"}</p>
+      </a>
+    `;
+
+          // เพิ่มรูปภาพลงในการ์ด
+          card.appendChild(topRightImage);
+          card.appendChild(bottomLeftImage);
+
+          projectCards.appendChild(card);
+        });
+      }
+
+      // เรียกใช้ฟังก์ชันเพื่อโหลดข้อมูลเมื่อโหลดหน้าเว็บ
+      window.onload = fetchGitHubRepos;
+    </script>
+  </body>
+</html>

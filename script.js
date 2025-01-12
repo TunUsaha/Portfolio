@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     case "index.html":
       pageTitle = "Home";
       break;
-    case "Project.html":
-      pageTitle = "Project";
+    case "projects.html":
+      pageTitle = "Projects";
       break;
     case "aboutme.html":
       pageTitle = "About Me";
@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const autoShowObserver = new IntersectionObserver(
-      autoShowObserverCallback,
-      autoShowObserverOptions
+    autoShowObserverCallback,
+    autoShowObserverOptions,
   );
   autoShowElements.forEach((element) => {
     autoShowObserver.observe(element);
@@ -71,10 +71,20 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const autoBlurObserver = new IntersectionObserver(
-      autoBlurObserverCallback,
-      autoBlurObserverOptions
+    autoBlurObserverCallback,
+    autoBlurObserverOptions,
   );
   autoBlurElements.forEach((element) => {
     autoBlurObserver.observe(element);
   });
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+  function toggleMenu() {
+    const nav = document.querySelector("nav ul");
+    nav.classList.toggle("active");
+  }
 });
