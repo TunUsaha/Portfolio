@@ -40,6 +40,21 @@ body {
   -moz-appearance: textfield;
 }
 
+.quote {
+  font-weight: 600;
+  color: #ff6f61;
+  letter-spacing: -0.01em;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
 .container {
   max-width: 75rem;
   margin: 0 auto;
@@ -102,56 +117,12 @@ footer {
   background-color: var(--secondary-color);
   padding: 1.25rem 0;
   text-align: center;
+  margin-top: 50px;
 }
 
 footer .container {
   color: var(--light-text-color);
   font-size: 0.875rem;
-}
-
-/* Responsive Design */
-@media (max-width: 48rem) {
-  header .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul {
-    margin-top: 1.25rem;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin-bottom: 0.625rem;
-  }
-
-  .page-title {
-    font-size: 2.25rem;
-  }
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #007aff;
-    --secondary-color: #1c1c1e;
-    --text-color: #e5e5ea;
-    --light-text-color: #8e8e93;
-    --border-color: #3a3a3c;
-    --primary-hover-color: #5ac8fa;
-  }
-
-  body {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-  }
-
-  header,
-  footer {
-    background-color: var(--secondary-color);
-    border-color: var(--border-color);
-  }
 }
 
 /* Base styles */
@@ -229,6 +200,24 @@ html, body {
 }
 
 .home-banner .image img {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  object-fit: contain;
+}
+
+.home-banner .profile {
+  width: 100%;
+  height: 50vh;
+  background-image: url("images/img1.wallspic.com-monochrome-apples-black_and_white-grey-3840x2160.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.home-banner .profile img {
   position: absolute;
   height: 100%;
   left: 50%;
@@ -348,11 +337,14 @@ html, body {
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
   border: none;
   overflow: hidden;
   position: relative;
-  z-index: 1; /* เพิ่ม z-index ให้การ์ด */
+  z-index: 1;
 }
 
 .project-cards .card img {
@@ -365,10 +357,10 @@ html, body {
 
 .project-cards .card .corner-image {
   position: absolute;
-  width: 120px; /* ปรับขนาดของรูป */
+  width: 120px;
   height: auto;
-  object-fit: cover; /* ให้ภาพไม่ยืดหรือล้น */
-  z-index: -1; /* ให้รูปอยู่เบื้องหลังเนื้อหาของ card */
+  object-fit: cover;
+  z-index: -1;
 }
 
 .project-cards .card .top-right {
@@ -379,13 +371,16 @@ html, body {
 }
 
 .project-cards .card:hover .top-right {
-  transform: rotate(180deg); /* หมุนรูป 180 องศาเมื่อ hover */
+  transform: rotate(180deg);
 }
 
 .project-cards .card .bottom-left {
   bottom: 0;
   left: 0;
-  transform: rotate(180deg); /* หมุนรูป 180 องศา */
+  transition: transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
 }
 
 .project-cards .card:hover {
@@ -436,13 +431,17 @@ html, body {
 }
 
 .project-cards .card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
   border-radius: 16px;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -559,111 +558,35 @@ html, body {
     filter: blur(0px);
   }
 }
-@media (max-width: 768px) {
+
+/* Responsive Styles */
+@media screen and (max-width: 1023px) {
+  /* เปลี่ยนรูปแบบการจัดวางเมนูใน header สำหรับหน้าจอเล็ก */
+  header nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* เปลี่ยนรูปแบบการจัดวางเนื้อหาของ .home-banner ให้เป็นการแสดงในแนวตั้ง */
   .home-banner .home-content {
-    flex-direction: column; /* Stack elements vertically */
+    display: block;
     text-align: center;
   }
 
-  .home-banner .home-content h1 {
-    font-size: clamp(2em, 6vw, 4em); /* Smaller title */
-    width: 100%; /* Full width */
-  }
-
-  .home-banner .home-content .information {
-    width: 100%; /* Adjust width for smaller screens */
-    padding: 1rem;
-  }
-
-  .home-banner .image {
-    height: 30vh; /* Reduce image height */
-  }
-
+  /* เปลี่ยนรูปแบบการจัดวางของ grid สำหรับหน้าจอเล็ก */
   .grid {
-    grid-template-columns: repeat(2, 1fr); /* Reduce columns */
-    gap: 1rem;
+    display: block;
   }
 
-  .grid-1 {
-    display: block; /* Stack items */
+  /* ปรับขนาดของหัวข้อใน grid-1 */
+  .grid-1 h2 {
+    font-size: 3em;
   }
 
-  .grid-2 {
-    grid-template-columns: 1fr; /* Single column */
-    grid-template-rows: auto; /* Flexible rows */
-  }
-
+  /* ปรับขนาดตัวอักษรใน grid-3 */
   .grid-3 {
-    display: flex;
-    flex-direction: column; /* Stack rows */
+    font-size: 4em;
+    margin-bottom: 100px;
   }
-}
-
-@media (max-width: 480px) {
-  header .container {
-    padding: 0.75rem; /* Reduced padding */
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem; /* Tighter spacing */
-  }
-
-  nav ul li a {
-    font-size: 0.875rem; /* Smaller font */
-  }
-
-  .page-title {
-    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Smaller titles */
-  }
-
-  .home-banner .home-content h1 {
-    font-size: clamp(1.5em, 5vw, 3em); /* Adjust title size */
-  }
-
-  .grid {
-    display: flex;
-    flex-direction: column; /* Stack grids */
-    gap: 1rem;
-  }
-}
-/* ปรับ Navbar บนมือถือ */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column; /* ซ้อนรายการเมนูในแนวตั้ง */
-    align-items: flex-start; /* จัดชิดด้านซ้าย */
-    position: absolute; /* วางตำแหน่งแบบลอย */
-    top: 100%; /* เลื่อนเมนูให้ต่ำกว่า Navbar */
-    left: 0;
-    width: 100%; /* ให้เมนูครอบคลุมหน้าจอ */
-    background-color: white; /* สีพื้นหลัง */
-    padding: 1rem; /* เพิ่มพื้นที่รอบๆ */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
-    transform: translateY(-200%); /* ซ่อนเมนู */
-    transition: transform 0.3s ease-in-out;
-  }
-
-  nav ul.active {
-    transform: translateY(0); /* แสดงเมนูเมื่อ active */
-  }
-
-  nav ul li {
-    margin: 0.5rem 0; /* เพิ่มระยะห่างระหว่างรายการ */
-  }
-
-  nav ul li a {
-    font-size: 1rem; /* ลดขนาดฟอนต์ */
-  }
-
-  .menu-toggle {
-    display: block; /* แสดงไอคอนเมนู */
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--text-color);
-  }
-}
-
-/* ซ่อนเมนูเริ่มต้น */
-.menu-toggle {
-  display: none;
 }

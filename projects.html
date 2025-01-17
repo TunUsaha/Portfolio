@@ -36,13 +36,14 @@
             <p class="right">Web Portfolio</p>
             <div class="banner-title">
               <p>
-                Welcome to my portfolio! I am currently pursuing a Bachelor of
-                Science in Modern Management Information Technology at Chiang
-                Mai University.
+                This is my project. Over the past three years, I have been
+                pursuing a Bachelor of Science in Modern Management Information
+                Technology at Chiang Mai University.
               </p>
               <p>
-                This website showcases my journey and passion for technology,
-                and I continuously strive to improve and share my progress.
+                This project reflects my learning journey, combining knowledge
+                and skills to create impactful tools while showcasing my growth
+                in the field.
               </p>
             </div>
           </div>
@@ -53,10 +54,10 @@
       </section>
 
       <section class="projects">
-            <div class="project-cards" id="project-cards"></div>
+        <div class="project-cards" id="project-cards"></div>
       </section>
       <section class="grid grid-3">
-        <div class="autoBLur">TUNUSAHA</div>
+        <div class="autoBLur">TUN USAHA</div>
         <div class="autoBLur">AI DEVELOPER</div>
         <div class="autoBLur">DATA ENGINEER</div>
       </section>
@@ -79,8 +80,15 @@
         try {
           const response = await fetch(url);
           const repos = await response.json();
+
           if (repos.length > 0) {
-            displayProjects(repos);
+            // กรอง repositories ที่ไม่ต้องการ
+            const filteredRepos = repos.filter(
+              (repo) =>
+                repo.name !== "Portfolio" && repo.name !== "TunUsaha",
+            );
+
+            displayProjects(filteredRepos);
           } else {
             console.log("No repositories found.");
           }
@@ -101,18 +109,18 @@
           // เพิ่มรูปภาพที่มุมขวาบนและมุมซ้ายล่าง
           const topRightImage = document.createElement("img");
           topRightImage.classList.add("corner-image", "top-right");
-          topRightImage.src = "images/image10.png"; // กำหนดที่อยู่ของภาพมุมขวาบน
+          topRightImage.src = "images/image10.png";
 
           const bottomLeftImage = document.createElement("img");
           bottomLeftImage.classList.add("corner-image", "bottom-left");
-          bottomLeftImage.src = "images/image10 Background Removed.png"; // กำหนดที่อยู่ของภาพมุมซ้ายล่าง
+          bottomLeftImage.src = "images/image10.png";
 
           card.innerHTML = `
-      <a href="${repo.html_url}" target="_blank">
-        <h3>${repo.name}</h3>
-        <p>${repo.description || "No description available"}</p>
-      </a>
-    `;
+        <a href="${repo.html_url}" target="_blank">
+          <h3>${repo.name}</h3>
+          <p>${repo.description || "No description available"}</p>
+        </a>
+      `;
 
           // เพิ่มรูปภาพลงในการ์ด
           card.appendChild(topRightImage);
