@@ -529,78 +529,109 @@ html, body {
   }
 }
 
-/* Media Queries */
-
-/* หน้าจอขนาดเล็กมาก (มือถือแนวตั้ง) */
-@media (max-width: 480px) {
-  footer {
-    padding: 1rem 0;
-    font-size: 0.8rem;
+/* Responsive styles for small devices (mobile phones) */
+@media (max-width: 640px) {
+  header .container {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .home-banner .home-content h1 {
-    font-size: 1.5em; /* ลดขนาดหัวข้อ */
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .home-banner .home-content .right h2 {
-    font-size: 2em; /* ลดขนาดหัวข้อด้านขวา */
-  }
-
-  .project-cards .card h3 {
-    font-size: 1.2rem; /* ลดขนาดข้อความของโปรเจกต์ */
-  }
-
-  .project-cards .card p {
-    font-size: 0.9rem; /* ลดขนาดคำอธิบายของโปรเจกต์ */
-  }
-}
-
-/* หน้าจอขนาดเล็ก (แท็บเล็ตแนวตั้ง) */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-
-  .home-banner .home-content {
+  .home-content {
     flex-direction: column;
     text-align: center;
   }
 
-  .home-banner .home-content h1 {
-    font-size: 2em; /* ลดขนาดหัวข้อ */
-  }
-
-  .home-banner .home-content .information {
+  .home-content h1,
+  .home-content .information {
     width: 100%;
   }
 
-  .project-cards {
-    grid-template-columns: 1fr; /* ให้โปรเจกต์แสดงเรียงกันทีละ 1 */
+  .home-content .right h2 {
+    font-size: clamp(2em, 5vw, 3em);
   }
-}
 
-/* หน้าจอขนาดกลาง (แท็บเล็ตแนวนอน) */
-@media (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(4, 1fr); /* ลดจำนวนคอลัมน์ใน grid */
+    grid-template-columns: 1fr;
   }
 
-  .project-cards {
-    grid-template-columns: repeat(2, 1fr); /* ให้โปรเจกต์แสดงทีละ 2 */
+  .grid-1 figure img {
+    width: 100%;
   }
 
-  footer {
-    font-size: 0.9rem;
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 div {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  footer .container {
+    font-size: 0.75rem;
   }
 }
 
-/* หน้าจอขนาดใหญ่ (เดสก์ท็อป) */
+/* Responsive styles for tablets (landscape orientation) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  header .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  nav ul {
+    gap: 1.25rem;
+  }
+
+  .home-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .home-content h1 {
+    font-size: clamp(4em, 8vw, 6em);
+  }
+
+  .grid-1 {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  footer .container {
+    font-size: 0.875rem;
+  }
+}
+
+/* Responsive styles for large screens (desktops) */
 @media (min-width: 1025px) {
-  .container {
-    padding: 0 2rem;
+  .home-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .grid-1 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .project-cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   footer {
-    font-size: 1rem;
+    text-align: center;
   }
 }
