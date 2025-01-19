@@ -46,10 +46,6 @@ body {
   letter-spacing: -0.01em;
 }
 
-.menu-toggle {
-  display: none;
-}
-
 img {
   width: 100%;
   height: auto;
@@ -118,6 +114,10 @@ footer {
   padding: 1.25rem 0;
   text-align: center;
   margin-top: 50px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
 }
 
 footer .container {
@@ -458,36 +458,6 @@ html, body {
 .project-cards .card a:hover p {
   color: #555555;
 }
-/* Responsive adjustments */
-@media screen and (max-width: 1023px) {
-  header img {
-    height: unset;
-    width: 100%;
-  }
-  .home-banner .home-content h1 {
-    font-size: 7em;
-  }
-  .home-banner .home-content {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .home-banner {
-    overflow: hidden;
-  }
-  .grid-1 h2:nth-child(3) {
-    font-size: 3em;
-  }
-  .grid {
-    display: block;
-  }
-  .grid-3 {
-    font-size: 4em;
-    display: block;
-    margin-bottom: 100px;
-  }
-}
 
 /* Animations */
 .autoRotate {
@@ -559,34 +529,78 @@ html, body {
   }
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 1023px) {
-  /* เปลี่ยนรูปแบบการจัดวางเมนูใน header สำหรับหน้าจอเล็ก */
-  header nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+/* Media Queries */
+
+/* หน้าจอขนาดเล็กมาก (มือถือแนวตั้ง) */
+@media (max-width: 480px) {
+  footer {
+    padding: 1rem 0;
+    font-size: 0.8rem;
   }
 
-  /* เปลี่ยนรูปแบบการจัดวางเนื้อหาของ .home-banner ให้เป็นการแสดงในแนวตั้ง */
+  .home-banner .home-content h1 {
+    font-size: 1.5em; /* ลดขนาดหัวข้อ */
+  }
+
+  .home-banner .home-content .right h2 {
+    font-size: 2em; /* ลดขนาดหัวข้อด้านขวา */
+  }
+
+  .project-cards .card h3 {
+    font-size: 1.2rem; /* ลดขนาดข้อความของโปรเจกต์ */
+  }
+
+  .project-cards .card p {
+    font-size: 0.9rem; /* ลดขนาดคำอธิบายของโปรเจกต์ */
+  }
+}
+
+/* หน้าจอขนาดเล็ก (แท็บเล็ตแนวตั้ง) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
   .home-banner .home-content {
-    display: block;
+    flex-direction: column;
     text-align: center;
   }
 
-  /* เปลี่ยนรูปแบบการจัดวางของ grid สำหรับหน้าจอเล็ก */
+  .home-banner .home-content h1 {
+    font-size: 2em; /* ลดขนาดหัวข้อ */
+  }
+
+  .home-banner .home-content .information {
+    width: 100%;
+  }
+
+  .project-cards {
+    grid-template-columns: 1fr; /* ให้โปรเจกต์แสดงเรียงกันทีละ 1 */
+  }
+}
+
+/* หน้าจอขนาดกลาง (แท็บเล็ตแนวนอน) */
+@media (max-width: 1024px) {
   .grid {
-    display: block;
+    grid-template-columns: repeat(4, 1fr); /* ลดจำนวนคอลัมน์ใน grid */
   }
 
-  /* ปรับขนาดของหัวข้อใน grid-1 */
-  .grid-1 h2 {
-    font-size: 3em;
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr); /* ให้โปรเจกต์แสดงทีละ 2 */
   }
 
-  /* ปรับขนาดตัวอักษรใน grid-3 */
-  .grid-3 {
-    font-size: 4em;
-    margin-bottom: 100px;
+  footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* หน้าจอขนาดใหญ่ (เดสก์ท็อป) */
+@media (min-width: 1025px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  footer {
+    font-size: 1rem;
   }
 }

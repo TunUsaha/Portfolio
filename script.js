@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       pageTitle = "About Me";
       break;
     default:
-      pageTitle = "Welcome"; // If the file name does not match the above, show "Welcome"
+      pageTitle = "Welcome";
   }
   // Set the title
   document.querySelector("h1").textContent = pageTitle;
@@ -77,14 +77,4 @@ document.addEventListener("DOMContentLoaded", function () {
   autoBlurElements.forEach((element) => {
     autoBlurObserver.observe(element);
   });
-  const menuToggle = document.getElementById("menu-toggle");
-  const navMenu = document.getElementById("nav-menu");
-
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
-  function toggleMenu() {
-    const nav = document.querySelector("nav ul");
-    nav.classList.toggle("active");
-  }
 });
