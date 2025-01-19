@@ -663,16 +663,55 @@ html, body {
   }
 
   .grid-2 {
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
   }
 
   .grid-2 div {
-    padding: 0 1rem;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .grid-2 .autoShow {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  /* จัดการ content ภายใน grid-2 */
+  .grid-2 figure {
+    margin-bottom: 1rem;
+  }
+
+  .grid-2 p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    clear: both;
+  }
+
+  /* ปรับ layout ของ div ที่มีรูปภาพและข้อความ */
+  .grid-2 div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .grid-2 div:nth-child(3) figure {
+    margin-bottom: 1rem;
+  }
+
+  .grid-2 div:nth-child(3) p {
+    text-align: center;
   }
 
   .grid-2 figure img {
     width: 100%;
     max-width: 300px;
+    height: auto;
     margin: 0 auto;
     display: block;
   }
@@ -764,16 +803,29 @@ html, body {
   .corner-image {
     width: 60px;
   }
+  .grid-2 p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .grid-2 figure img {
+    max-width: 250px;
+  }
+
 }
 
 /* iPadOS specific fixes */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .container {
-    padding: 0 3rem;
+    padding: 0 2.5rem;
+    max-width: 90%;
+    margin: 0 auto;
   }
 
   header .container {
-    padding: 1rem 3rem;
+    padding: 1rem 2.5rem;
+    margin: 0 auto;
+    width: 90%;
   }
 
   .home-banner .home-content .information {
@@ -790,6 +842,14 @@ html, body {
 
   .project-cards {
     padding: 0 2rem;
+  }
+
+  nav {
+    margin-right: 1.5rem;
+  }
+
+  nav ul {
+    gap: 2rem;
   }
 }
 
