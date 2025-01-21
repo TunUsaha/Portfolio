@@ -529,80 +529,6 @@ html, body {
   }
 }
 
-/* iPad Styles (768px to 1024px) */
-@media screen and (max-width: 1024px) {
-  .container {
-    padding: 0 2rem;
-    width: 100%;
-  }
-
-  header .container {
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .home-banner .home-content {
-    height: auto;
-    padding: 2rem 0;
-    margin-bottom: 5vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .home-banner .home-content h1.left {
-    width: 100%;
-    text-align: center;
-    font-size: clamp(4em, 8vw, 8em);
-    margin-bottom: 1rem;
-  }
-
-  .home-banner .home-content .information {
-    width: 100%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .right {
-    text-align: center;
-    width: 100%;
-  }
-
-  .banner-title {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem 0;
-  }
-
-  .home-banner .image,
-  .home-banner .profile {
-    height: 45vh;
-    width: 100%;
-    margin-top: 2rem;
-  }
-
-  .grid-2 {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .grid-2 div:nth-child(3) {
-    grid-column: 1;
-    margin-top: 0;
-  }
-
-  .project-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    padding: 0 1rem;
-  }
-}
-
 /* iPhone Styles (up to 767px) */
 @media screen and (max-width: 767px) {
   header .container {
@@ -811,79 +737,176 @@ html, body {
   .grid-2 figure img {
     max-width: 250px;
   }
-
 }
 
-/* iPadOS specific fixes */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+/* iPad Styles (768px to 1024px) */
+@media screen and (max-width: 1024px) {
   .container {
-    padding: 0 2.5rem;
-    max-width: 90%;
+    padding: 0 2rem;
+    width: 100%;
+  }
+
+  header .container {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .home-banner .home-content {
+    height: auto;
+    padding: 2rem 0;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-banner .home-content h1.left {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(4em, 8vw, 8em);
+    margin-bottom: 1rem;
+  }
+
+  .home-banner .home-content .information {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right {
+    text-align: center;
+    width: 100%;
+  }
+
+  .banner-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .home-banner .image,
+  .home-banner .profile {
+    height: 45vh;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .grid-2 div:nth-child(3) {
+    grid-column: 1;
+    margin-top: 0;
+  }
+
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Container and Layout */
+  .container {
+    padding: 0 2rem;
+    max-width: 100%;
     margin: 0 auto;
   }
 
   header .container {
-    padding: 1rem 2.5rem;
-    margin: 0 auto;
-    width: 90%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  h1, nav ul li a {
-    margin: 0 2px;
-  }
-
-  .home-banner .home-content .information {
-    padding: 2rem 3rem;
-  }
-
-  .grid.grid-1 {
-    margin-top: 15px;
-  }
-
-  .projects {
-    margin-top: 15px;
-  }
-
-  .banner-title {
-    font-size: 1.1rem;
-  }
-
-  .grid-2 {
-    padding: 0 2rem;
-  }
-
-  .project-cards {
-    padding: 0 2rem;
-  }
-
-  nav {
-    margin-right: 1.5rem;
-  }
-
+  /* Navigation */
   nav ul {
+    display: flex;
     gap: 2rem;
+    align-items: center;
   }
-}
 
-/* iPad Pro specific fixes */
-@media screen and (min-width: 1024px) and (max-width: 1366px) {
-  .container {
-    padding: 0 4rem;
+  nav ul li a {
+    font-size: 1rem;
+    text-transform: none;
+    transition: color 0.3s ease;
+  }
+
+  /* Home Banner */
+  .home-banner {
+    margin-bottom: 100px;
   }
 
   .home-banner .home-content {
-    margin-bottom: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
   }
 
-  .grid.grid-1 {
-    margin-top: 15px;
+  .home-banner .information {
+    flex: 1;
+    text-align: left;
   }
 
-  .projects {
-    margin-top: 15px;
+  .home-banner .image {
+    flex: 1;
+    max-width: 40%;
+  }
+
+  .home-banner .image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Grid Layouts */
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Typography */
+  body {
+    font-size: 16px;
+  }
+
+  .banner-title {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .container {
+    padding: 0 3rem;
+    max-width: 90%;
   }
 
   .project-cards {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .home-banner .home-content {
+    margin-bottom: 250px;
   }
 }
