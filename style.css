@@ -595,9 +595,14 @@ html, body {
   }
 
   .grid figure img {
-    width: 50%;
+    width: 70%;
     height: auto;
     display: block;
+  }
+
+  .grid figure img.autoRotate {
+    width: 40%;
+    height: auto;
   }
 
   .grid-1 figure:nth-child(1),
@@ -679,12 +684,12 @@ html, body {
   }
 
   .project-cards .card h3 {
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-top: 1rem;
   }
 
   .project-cards .card p {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     margin-top: 0.5rem;
   }
 
@@ -773,7 +778,7 @@ html, body {
   .home-banner .home-content {
     height: auto;
     padding: 2rem 0;
-    margin-bottom: 5vh;
+    margin-bottom: 0.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -808,9 +813,14 @@ html, body {
 
   .home-banner .image,
   .home-banner .profile {
-    /*height: 45vh;*/
+    height: 25vh;
     width: 100%;
     margin-top: 2rem;
+    object-fit: cover;
+  }
+
+  .image{
+    height: 10rem;
   }
 
   .grid-2 {
