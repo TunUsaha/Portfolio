@@ -828,8 +828,20 @@ html, body {
     width: 90%;
   }
 
+  h1, nav ul li a {
+    margin: 0 2px;
+  }
+
   .home-banner .home-content .information {
     padding: 2rem 3rem;
+  }
+
+  .grid.grid-1 {
+    margin-top: 15px;
+  }
+
+  .projects {
+    margin-top: 15px;
   }
 
   .banner-title {
@@ -861,6 +873,14 @@ html, body {
 
   .home-banner .home-content {
     margin-bottom: 10vh;
+  }
+
+  .grid.grid-1 {
+    margin-top: 15px;
+  }
+
+  .projects {
+    margin-top: 15px;
   }
 
   .project-cards {
