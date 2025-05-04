@@ -9,8 +9,17 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"],
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "preact": "https://esm.sh/preact@10.24.3",
@@ -23,7 +32,10 @@
     "$std/": "https://deno.land/std@0.216.0/",
     "@/": "./"
   },
-  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
   "nodeModulesDir": "auto",
   "fmt": {
     "useTabs": false,
@@ -32,7 +44,20 @@
     "semiColons": true,
     "singleQuote": true,
     "proseWrap": "preserve",
-    "include": ["src/"],
-    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "src/fixtures/**/*.ts"
+    ]
+  },
+  "deploy": {
+    "project": "474138c2-bb28-41c3-97ef-377e0d91f65e",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "main.ts"
   }
 }
