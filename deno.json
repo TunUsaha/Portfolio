@@ -45,11 +45,14 @@
     "singleQuote": true,
     "proseWrap": "preserve",
     "include": [
-      "src/"
+      "routes/",
+      "islands/",
+      "components/",
+      "static/"
     ],
     "exclude": [
-      "src/testdata/",
-      "src/fixtures/**/*.ts"
+      "_fresh/",
+      "build/"
     ]
   },
   "deploy": {
