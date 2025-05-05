@@ -6,10 +6,14 @@ export default function Home() {
       <Head>
         <meta charSet='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta
+          name='description'
+          content='Portfolio of Tun Usaha, a data engineer and AI developer specializing in machine learning applications and cybersecurity.'
+        />
         <title>Portfolio</title>
 
         {/* ใช้ parameter เดียวกันทุกหน้า */}
-        <link rel="icon" href="static/logo.svg?v=2" type="image/svg+xml" />
+        <link rel='icon' href='static/logo.svg?v=2' type='image/svg+xml' />
         <link rel='apple-touch-icon' href='static/logo.svg' />
 
         <link
@@ -18,6 +22,8 @@ export default function Home() {
         />
         <link rel='stylesheet' href='/style.css' type='text/css' />
         <script type='module' src='/script.js'></script>
+        <link rel='stylesheet' href='/smoothScroll.css' type='text/css' />
+        <script type='module' src='/smoothScroll.js'></script>
       </Head>
 
       <header>

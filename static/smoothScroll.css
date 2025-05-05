@@ -1,0 +1,146 @@
+/* smoothScroll.css - CSS สำหรับ Enhanced Smooth Scroll Animation */
+
+/* ปรับปรุง Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* เพิ่มขอบด้านบนเพื่อให้เลื่อนไปที่หัวข้อไม่ถูกซ่อนโดย header */
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #0066cc; /* ใช้ primary-color จาก theme ของคุณ */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  z-index: 1000;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.back-to-top.visible {
+  opacity: 0.8;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+  background-color: #004499; /* ใช้ primary-hover-color จาก theme ของคุณ */
+}
+
+/* Scroll Animations Classes */
+.scroll-animate {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.scroll-animate.animate {
+  opacity: 1;
+}
+
+/* ประเภทของ animations */
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.animate {
+  opacity: 1;
+}
+
+.slide-up {
+  transform: translateY(50px);
+}
+
+.slide-up.animate {
+  transform: translateY(0);
+}
+
+.slide-right {
+  transform: translateX(-50px);
+}
+
+.slide-right.animate {
+  transform: translateX(0);
+}
+
+.slide-left {
+  transform: translateX(50px);
+}
+
+.slide-left.animate {
+  transform: translateX(0);
+}
+
+.zoom-in {
+  transform: scale(0.8);
+}
+
+.zoom-in.animate {
+  transform: scale(1);
+}
+
+/* Animation delay modifiers */
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+/* Progressive Loading for Project Cards */
+.project-cards .card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-cards .card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 767px) {
+  .back-to-top {
+    width: 35px;
+    height: 35px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 16px;
+  }
+
+  html {
+    scroll-padding-top: 60px; /* ปรับให้เหมาะกับความสูง header บนมือถือ */
+  }
+
+  /* ปรับความเร็วของ animation บนมือถือให้เร็วขึ้น */
+  .scroll-animate {
+    transition: all 0.6s ease;
+  }
+}
