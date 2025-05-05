@@ -1190,7 +1190,7 @@ html, body {
 /* แก้ไขส่วนนี้เพื่อให้เป็น 3 คอลัมน์คงที่ */
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* กำหนดให้เป็น 3 คอลัมน์เท่าๆ กัน */
+  grid-template-columns: repeat(4, 1fr); /* กำหนดให้เป็น 3 คอลัมน์เท่าๆ กัน */
   gap: 2.5rem;
   margin-top: 2.5rem;
   width: 100%;
