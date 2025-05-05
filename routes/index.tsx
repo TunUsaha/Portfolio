@@ -7,7 +7,11 @@ export default function Home() {
         <meta charSet='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title>Portfolio</title>
-        <link rel='icon' href='/icon/logo.svg' type='image/svg+xml' />
+
+        {/* ใช้ parameter เดียวกันทุกหน้า */}
+        <link rel="icon" href="static/logo.svg?v=2" type="image/svg+xml" />
+        <link rel='apple-touch-icon' href='static/logo.svg' />
+
         <link
           href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
           rel='stylesheet'

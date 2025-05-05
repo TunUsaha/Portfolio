@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // Set the title based on the page name
   let pageTitle = '';
   switch (currentPage) {
-    case 'index.html':
+    case '':
       pageTitle = 'Home';
       break;
-    case 'projects.html':
+    case 'projects':
       pageTitle = 'Projects';
       break;
-    case 'aboutme.html':
+    case 'aboutme':
       pageTitle = 'About Me';
       break;
     default:
