@@ -94,6 +94,8 @@ function NavBar(
 }
 
 function HomePage({ onNav }: { onNav: (p: Page) => void }) {
+  const heroRef = useRef<HTMLElement>(null);
+
   const btnMagnet = (e: MouseEvent) => {
     const el = e.currentTarget as HTMLElement;
     const r = el.getBoundingClientRect();
@@ -918,7 +920,7 @@ export default function Portfolio() {
     setTheme((cur) => order[(order.indexOf(cur) + 1) % 3]);
   };
 
-  const themeVars: Record<string, string> = (() => {
+  const themeVars = (() => {
     const accent = '#d72638';
     if (theme === 'light') {
       return { '--bg': '#ffffff', '--surface': '#fafafa', '--headline': '#1a1a1a', '--body': '#454545', '--muted': '#8c8c8c', '--hair': '#ededed', '--border': '#e4e4e4', '--glass': 'rgba(255,255,255,.72)', '--accent': accent, '--hero-vignette': 'rgba(0,0,0,.18)' };
