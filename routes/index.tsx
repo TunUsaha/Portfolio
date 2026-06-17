@@ -1,5 +1,7 @@
-import Portfolio from '../islands/Portfolio.tsx';
-
 export default function Home() {
-  return <Portfolio />;
+  return (
+    <main>
+      <h1>Hello, world!</h1>
+    </main>
+  );
 }
