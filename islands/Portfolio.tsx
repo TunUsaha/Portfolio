@@ -188,6 +188,11 @@ function HomePage({ onNav }: { onNav: (p: Page) => void }) {
         <img src='/images/statue.png' alt='' style='position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:96%;max-height:100%;width:auto;z-index:2;pointer-events:none;filter:drop-shadow(0 14px 36px rgba(0,0,0,.28))' />
       </section>
 
+      {/* Banner */}
+      <section style='margin-top:clamp(36px,5vw,64px);border-radius:20px;overflow:hidden;border:1px solid var(--border);animation:revealSoft .9s ease both'>
+        <img src='/images/banner.png' alt='' style='width:100%;height:auto;display:block' />
+      </section>
+
       {/* Interesting */}
       <section style='margin-top:clamp(56px,7vw,104px)'>
         <div style='display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:32px;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) both'>
@@ -408,9 +413,9 @@ function ExperiencePage() {
   }, []);
 
   const certCards = [
-    { id: 'cert-lex-1', title: 'LeX SP × CMU — Cohort 1', sub: 'Sustainable Innovation Camp · participation' },
-    { id: 'cert-lex-2', title: 'LeX SP × CMU — Cohort 2', sub: 'Sustainable Innovation Camp · participation' },
-    { id: 'cert-award', title: 'APacCHRIE 2025', sub: 'Award certificate' },
+    { id: 'cert-lex-1', title: 'LeX SP × CMU — Cohort 1', sub: 'Sustainable Innovation Camp · participation', src: '/images/Lex1.jpeg' },
+    { id: 'cert-lex-2', title: 'LeX SP × CMU — Cohort 2', sub: 'Sustainable Innovation Camp · participation', src: '/images/Lex2.jpeg' },
+    { id: 'cert-award', title: 'APacCHRIE 2025', sub: 'Award certificate', src: '/images/APacCHIRE.jpeg' },
   ];
 
   return (
@@ -503,15 +508,17 @@ function ExperiencePage() {
         </div>
         <div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:16px'>
           {certCards.map((c, i) => (
-            <div key={c.id} style={`cursor:zoom-in;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${i * 0.09}s both`}>
+            <div
+              key={c.id}
+              onClick={() => setLightboxSrc(c.src)}
+              style={`cursor:zoom-in;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${i * 0.09}s both`}
+            >
               <div
-                style='position:relative;border:1px solid var(--border);border-radius:14px;background:var(--surface);aspect-ratio:297/210;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s ease'
+                style='position:relative;border:1px solid var(--border);border-radius:14px;background:var(--surface);overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s ease'
                 onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-4px)'; el.style.borderColor = 'var(--headline)'; }}
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; }}
               >
-                <div style='position:absolute;inset:12px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--border);border-radius:6px'>
-                  <span style='font-size:12px;color:var(--muted);text-align:center;padding:8px'>{c.title}</span>
-                </div>
+                <img src={c.src} alt={c.title} style='width:100%;height:auto;display:block' />
                 <div style='position:absolute;top:9px;right:9px;z-index:3;width:28px;height:28px;border-radius:50%;background:rgba(20,20,20,.5);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;pointer-events:none;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)'>⤢</div>
               </div>
               <div style='margin-top:12px'>
