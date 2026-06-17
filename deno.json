@@ -60,7 +60,9 @@
     "exclude": [
       "**/node_modules"
     ],
-    "include": [],
+    "include": [
+      "static/**"
+    ],
     "entrypoint": "main.ts"
   }
 }
