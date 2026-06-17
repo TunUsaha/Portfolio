@@ -10,6 +10,7 @@ import * as $index from './routes/index.tsx';
 import * as $projects from './routes/projects.tsx';
 import * as $Counter from './islands/Counter.tsx';
 import * as $GitHubRepos from './islands/GitHubRepos.tsx';
+import * as $Portfolio from './islands/Portfolio.tsx';
 import type { Manifest } from '$fresh/server.ts';
 
 const manifest = {
@@ -24,6 +25,7 @@ const manifest = {
   islands: {
     './islands/Counter.tsx': $Counter,
     './islands/GitHubRepos.tsx': $GitHubRepos,
+    './islands/Portfolio.tsx': $Portfolio,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
