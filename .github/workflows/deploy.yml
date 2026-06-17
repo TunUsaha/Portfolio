@@ -14,12 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
-      
+
       - name: Build step
         run: deno task build
-      
+
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "tunthuntan-portfolio"
           entrypoint: "main.ts"
+          token: ${{ secrets.DENO_DEPLOY_TOKEN }}
