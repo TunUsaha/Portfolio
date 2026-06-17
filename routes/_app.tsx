@@ -41,6 +41,22 @@ html,body{margin:0;padding:0}
 @keyframes avatarBob{0%{transform:scale(1.34) translateY(0) rotate(0deg)}20%{transform:scale(1.345) translateY(-2.6%) rotate(-1.6deg)}50%{transform:scale(1.35) translateY(-1.1%) rotate(.4deg)}75%{transform:scale(1.345) translateY(-3.2%) rotate(1.6deg)}100%{transform:scale(1.34) translateY(0) rotate(0deg)}}
 @keyframes lightFade{from{opacity:0}to{opacity:1}}
 @keyframes lightPop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@keyframes chipIn{from{opacity:0;filter:blur(3px)}to{opacity:1;filter:none}}
+
+[data-deco]{transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .45s ease}
+[data-reveal]:hover [data-deco]{transform:scale(1.3) rotate(9deg);opacity:.34}
+[data-skillrow] span{animation:chipIn .5s ease both}
+[data-skillrow] span:nth-child(1){animation-delay:.04s}
+[data-skillrow] span:nth-child(2){animation-delay:.09s}
+[data-skillrow] span:nth-child(3){animation-delay:.14s}
+[data-skillrow] span:nth-child(4){animation-delay:.19s}
+[data-skillrow] span:nth-child(5){animation-delay:.24s}
+[data-skillrow] span:nth-child(6){animation-delay:.29s}
+[data-skillrow] span:nth-child(7){animation-delay:.34s}
+[data-skillrow] span:nth-child(8){animation-delay:.39s}
+[data-skillrow] span:nth-child(9){animation-delay:.44s}
+[data-skillrow] span:nth-child(10){animation-delay:.49s}
+[data-skillrow] span:nth-child(n+11){animation-delay:.54s}
 
 a{color:inherit}
 button{font-family:inherit}

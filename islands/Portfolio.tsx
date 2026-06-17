@@ -179,6 +179,7 @@ function HomePage({ onNav }: { onNav: (p: Page) => void }) {
         <div style='position:absolute;inset:-20%;animation:marbleA 26s ease-in-out infinite alternate;background:radial-gradient(120% 90% at 22% 28%,#ffffff 0%,rgba(255,255,255,0) 55%),radial-gradient(110% 80% at 82% 72%,#9c9c9c 0%,rgba(156,156,156,0) 55%),conic-gradient(from 210deg at 50% 50%,#eaeaea,#bcbcbc,#f5f5f5,#a4a4a4,#dedede,#c9c9c9,#eaeaea)' />
         <div style='position:absolute;inset:-25%;mix-blend-mode:overlay;filter:blur(3px);animation:marbleB 32s ease-in-out infinite alternate;background:radial-gradient(60% 50% at 35% 60%,#ffffff,rgba(255,255,255,0) 60%),radial-gradient(55% 45% at 70% 30%,#7d7d7d,rgba(125,125,125,0) 60%),linear-gradient(120deg,#d2d2d2,#f2f2f2,#b0b0b0)' />
         <div style='position:absolute;inset:0;box-shadow:inset 0 0 120px 20px var(--hero-vignette)' />
+        <img src='/images/hero-render.webp' alt='' style='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block' />
         {/* Sheen bands + cursor blob */}
         <div style='position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden'>
           <div data-sheen-band='' data-kf='chromeOnce1' data-dur='1.6s' style='position:absolute;inset:-30%;mix-blend-mode:soft-light;opacity:.6;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.9) 50%,transparent 58%);transform:translateX(-80%) skewX(-12deg)' />
@@ -206,11 +207,12 @@ function HomePage({ onNav }: { onNav: (p: Page) => void }) {
           {cards.map((c, i) => (
             <div
               key={c.num}
-              style={`position:relative;overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:26px 24px 24px;transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .35s ease;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${i * 0.07}s both`}
-              onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.borderColor = 'var(--headline)'; }}
-              onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; }}
+              data-reveal=''
+              style={`position:relative;overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:26px 24px 24px;transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .35s ease,box-shadow .4s ease;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${0.05 + i * 0.07}s both`}
+              onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-8px)'; el.style.borderColor = 'var(--headline)'; el.style.boxShadow = '0 22px 48px rgba(0,0,0,.13)'; }}
+              onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; el.style.boxShadow = ''; }}
             >
-              <div style='position:absolute;right:-12px;top:-12px;width:128px;height:128px;background-image:radial-gradient(var(--accent) 1.2px,transparent 1.6px);background-size:11px 11px;opacity:.15;pointer-events:none' />
+              <div data-deco='' style='position:absolute;right:-12px;top:-12px;width:128px;height:128px;background-image:radial-gradient(var(--accent) 1.2px,transparent 1.6px);background-size:11px 11px;opacity:.15;pointer-events:none' />
               <div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:18px'>
                 <span style='font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700'>{c.tag}</span>
                 <span style='font-size:14px;font-weight:800;color:var(--muted)'>{c.num}</span>
@@ -240,9 +242,9 @@ function AboutPage({ onNav }: { onNav: (p: Page) => void }) {
   ];
 
   const skills = [
-    { title: 'Business Analysis', tags: ['Requirements', 'Process mapping', 'CRM'] },
+    { title: 'Business Analysis', tags: ['Requirements', 'Process mapping', 'CRM', 'UI/UX Wireframing', 'System Testing & QA', 'Technical Documentation', 'User Training', 'Post-Implementation Support'] },
     { title: 'Research & AI', tags: ['Machine learning', 'Data preprocessing', 'Academic writing'] },
-    { title: 'Technical Tools', tags: ['Python', 'SQL', 'Git'] },
+    { title: 'Technical Tools', tags: ['Python', 'SQL', 'Git', 'PHP', 'JavaScript', 'HTML', 'CSS', 'Power BI', 'Excel', 'Figma'] },
   ];
 
   const offClock = [
@@ -332,15 +334,21 @@ function AboutPage({ onNav }: { onNav: (p: Page) => void }) {
           {skills.map((s, i) => (
             <div
               key={s.title}
-              style={`position:relative;overflow:hidden;border:1px solid var(--border);border-radius:16px;padding:24px;background:var(--surface);transition:transform .25s ease,border-color .25s ease;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${0.05 + i * 0.07}s both`}
-              onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-4px)'; el.style.borderColor = 'var(--headline)'; }}
-              onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; }}
+              data-reveal=''
+              style={`position:relative;overflow:hidden;border:1px solid var(--border);border-radius:16px;padding:24px;background:var(--surface);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s ease,box-shadow .35s ease;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${0.05 + i * 0.07}s both`}
+              onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-8px)'; el.style.borderColor = 'var(--headline)'; el.style.boxShadow = '0 22px 48px rgba(0,0,0,.13)'; }}
+              onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; el.style.boxShadow = ''; }}
             >
-              <div style='position:absolute;right:-12px;top:-12px;width:110px;height:110px;background-image:radial-gradient(var(--accent) 1.2px,transparent 1.6px);background-size:11px 11px;opacity:.14;pointer-events:none' />
+              <div data-deco='' style='position:absolute;right:-12px;top:-12px;width:110px;height:110px;background-image:radial-gradient(var(--accent) 1.2px,transparent 1.6px);background-size:11px 11px;opacity:.14;pointer-events:none' />
               <div style='font-size:17px;font-weight:700;color:var(--headline);margin-bottom:16px'>{s.title}</div>
-              <div style='display:flex;flex-wrap:wrap;gap:8px'>
+              <div data-skillrow='' style='display:flex;flex-wrap:wrap;gap:8px'>
                 {s.tags.map((tag) => (
-                  <span key={tag} style='font-size:13px;color:var(--body);border:1px solid var(--border);border-radius:999px;padding:5px 12px;background:var(--bg)'>{tag}</span>
+                  <span
+                    key={tag}
+                    style='font-size:13px;color:var(--body);border:1px solid var(--border);border-radius:999px;padding:5px 12px;background:var(--bg);transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s ease,color .22s ease,box-shadow .22s ease'
+                    onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-3px)'; el.style.borderColor = 'var(--accent)'; el.style.color = 'var(--headline)'; el.style.boxShadow = '0 8px 18px rgba(0,0,0,.1)'; }}
+                    onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; el.style.color = ''; el.style.boxShadow = ''; }}
+                  >{tag}</span>
                 ))}
               </div>
             </div>
@@ -362,7 +370,12 @@ function AboutPage({ onNav }: { onNav: (p: Page) => void }) {
         </div>
         <div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px'>
           {offClock.map((o) => (
-            <div key={o.label} style='border:1px solid var(--border);border-radius:14px;padding:20px;background:var(--surface)'>
+            <div
+              key={o.label}
+              style='border:1px solid var(--border);border-radius:14px;padding:20px;background:var(--surface);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s ease,box-shadow .35s ease'
+              onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.borderColor = 'var(--headline)'; el.style.boxShadow = '0 18px 40px rgba(0,0,0,.12)'; }}
+              onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; el.style.boxShadow = ''; }}
+            >
               <div style='font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px'>{o.label}</div>
               <div style='font-size:15px;color:var(--headline);font-weight:600'>{o.value}</div>
             </div>
@@ -413,9 +426,9 @@ function ExperiencePage() {
   }, []);
 
   const certCards = [
-    { id: 'cert-lex-1', title: 'LeX SP × CMU — Cohort 1', sub: 'Sustainable Innovation Camp · participation', src: '/images/Lex1.jpeg' },
-    { id: 'cert-lex-2', title: 'LeX SP × CMU — Cohort 2', sub: 'Sustainable Innovation Camp · participation', src: '/images/Lex2.jpeg' },
-    { id: 'cert-award', title: 'APacCHRIE 2025', sub: 'Award certificate', src: '/images/APacCHIRE.jpeg' },
+    { id: 'cert-lex-1', title: 'LeX SP × CMU — Cohort 1', sub: 'Sustainable Innovation Camp · participation', src: '/images/cert-lex-1.webp' },
+    { id: 'cert-lex-2', title: 'LeX SP × CMU — Cohort 2', sub: 'Sustainable Innovation Camp · participation', src: '/images/cert-lex-2.webp' },
+    { id: 'cert-award', title: 'APacCHRIE 2025', sub: 'Award certificate', src: '/images/cert-award.webp' },
   ];
 
   return (
@@ -479,8 +492,7 @@ function ExperiencePage() {
           </div>
           <h2 style='margin:0 0 12px;font-size:clamp(26px,3.4vw,44px);font-weight:800;letter-spacing:-.03em;color:var(--headline);line-height:1.05'>APacCHRIE 2025 Award</h2>
           <p style='margin:0;max-width:680px;font-size:16px;line-height:1.65;color:var(--body)'>
-            APacCHRIE 2025 Award (2nd Place) — recognized for a research project exploring{' '}
-            <span style='color:var(--muted)'>[topic]</span>, presented at the APacCHRIE 2025 Conference.
+            1st Runner-up, Youth Conference — APacCHRIE 2025, Chiang Mai, Esports Event Research
           </p>
         </div>
         <div style='position:relative;flex:0 0 0;width:0;border-left:2px dashed var(--border)'>
@@ -511,14 +523,14 @@ function ExperiencePage() {
             <div
               key={c.id}
               onClick={() => setLightboxSrc(c.src)}
-              style={`cursor:zoom-in;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${i * 0.09}s both`}
+              style={`cursor:zoom-in;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) ${0.05 + i * 0.09}s both`}
             >
               <div
-                style='position:relative;border:1px solid var(--border);border-radius:14px;background:var(--surface);overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s ease'
+                style='position:relative;border:1px solid var(--border);border-radius:14px;background:var(--surface);aspect-ratio:297/210;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s ease'
                 onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-4px)'; el.style.borderColor = 'var(--headline)'; }}
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = ''; el.style.borderColor = ''; }}
               >
-                <img src={c.src} alt={c.title} style='width:100%;height:auto;display:block' />
+                <img src={c.src} alt={c.title} style='position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:contain;display:block;border-radius:6px' />
                 <div style='position:absolute;top:9px;right:9px;z-index:3;width:28px;height:28px;border-radius:50%;background:rgba(20,20,20,.5);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;pointer-events:none;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)'>⤢</div>
               </div>
               <div style='margin-top:12px'>
