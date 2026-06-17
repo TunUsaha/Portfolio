@@ -189,11 +189,6 @@ function HomePage({ onNav }: { onNav: (p: Page) => void }) {
         <img src='/images/statue.png' alt='' style='position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:96%;max-height:100%;width:auto;z-index:2;pointer-events:none;filter:drop-shadow(0 14px 36px rgba(0,0,0,.28))' />
       </section>
 
-      {/* Banner */}
-      <section style='margin-top:clamp(36px,5vw,64px);border-radius:20px;overflow:hidden;border:1px solid var(--border);animation:revealSoft .9s ease both'>
-        <img src='/images/banner.png' alt='' style='width:100%;height:auto;display:block' />
-      </section>
-
       {/* Interesting */}
       <section style='margin-top:clamp(56px,7vw,104px)'>
         <div style='display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:32px;animation:revealIn .7s cubic-bezier(.2,.7,.2,1) both'>

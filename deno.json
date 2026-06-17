@@ -56,7 +56,7 @@
     ]
   },
   "deploy": {
-    "project": "474138c2-bb28-41c3-97ef-377e0d91f65e",
+    "project": "tunthuntan-portfolio",
     "exclude": [
       "**/node_modules"
     ],
