@@ -78,7 +78,7 @@ interface HomePageProps {
 export default function HomePage({ onNav }: HomePageProps) {
   return (
     <main style='max-width:1320px;margin:0 auto;padding:clamp(32px,6vw,84px) clamp(20px,5vw,72px) 96px'>
-      <section style='display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(24px,5vw,64px);align-items:end'>
+      <section class='l-hero-header'>
         <div>
           <div style='font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px'>
             Portfolio — 2026

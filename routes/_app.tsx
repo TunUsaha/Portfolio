@@ -60,6 +60,43 @@ html,body{margin:0;padding:0}
 
 a{color:inherit}
 button{font-family:inherit}
+
+/* ─── Responsive layout utilities ───────────────────────────── */
+
+/* Desktop defaults — these become the layout source of truth     */
+/* so @media overrides can beat inline styles with lower effort.  */
+.l-nav-links{display:flex;align-items:center;gap:clamp(14px,3vw,40px)}
+.l-hero-header{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(24px,5vw,64px);align-items:end}
+.l-about-intro{display:grid;grid-template-columns:clamp(168px,24vw,288px) 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+
+/* Hamburger button — hidden on desktop */
+.l-burger{display:none;flex-direction:column;justify-content:center;gap:5.5px;background:none;border:none;cursor:pointer;padding:8px;margin-right:-8px}
+.l-burger span{display:block;width:22px;height:2px;border-radius:2px;background:var(--headline);transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .25s ease}
+.l-burger[aria-expanded=true] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.l-burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.l-burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* Mobile full-screen menu */
+.l-mmenu{display:none;position:fixed;inset:68px 0 0;z-index:49;background:var(--bg);flex-direction:column;padding:8px clamp(20px,5vw,40px) 48px;overflow-y:auto;border-top:1px solid var(--hair)}
+.l-mmenu.open{display:flex;animation:revealSoft .18s ease both}
+
+/* ─── Mobile breakpoint ──────────────────────────────────────── */
+@media(max-width:640px){
+  /* Nav */
+  .l-nav-links{display:none}
+  .l-burger{display:flex}
+
+  /* Hero header — stack columns */
+  .l-hero-header{grid-template-columns:1fr}
+
+  /* About intro — stack avatar above text */
+  .l-about-intro{grid-template-columns:1fr}
+  .l-about-avatar{width:min(200px,55vw)!important;height:min(200px,55vw)!important;margin:0 auto}
+
+  /* Boarding-pass ticket — hide decorative stub */
+  .l-ticket-divider{display:none!important}
+  .l-ticket-stub{display:none!important}
+}
 `,
           }}
         />

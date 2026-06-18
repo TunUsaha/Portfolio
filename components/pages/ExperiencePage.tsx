@@ -136,11 +136,11 @@ export default function ExperiencePage() {
             Esports Event Research
           </p>
         </div>
-        <div style='position:relative;flex:0 0 0;width:0;border-left:2px dashed var(--border)'>
+        <div class='l-ticket-divider' style='position:relative;flex:0 0 0;width:0;border-left:2px dashed var(--border)'>
           <div style='position:absolute;left:-13px;top:-13px;width:26px;height:26px;border-radius:50%;background:var(--bg)' />
           <div style='position:absolute;left:-13px;bottom:-13px;width:26px;height:26px;border-radius:50%;background:var(--bg)' />
         </div>
-        <div style='flex:0 0 clamp(118px,18%,180px);padding:clamp(20px,2.5vw,30px) clamp(14px,2vw,22px);display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;text-align:center'>
+        <div class='l-ticket-stub' style='flex:0 0 clamp(118px,18%,180px);padding:clamp(20px,2.5vw,30px) clamp(14px,2vw,22px);display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;text-align:center'>
           <div style='font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:700'>
             Boarding · Award
           </div>

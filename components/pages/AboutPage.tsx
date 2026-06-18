@@ -10,8 +10,8 @@ export default function AboutPage({ onNav }: AboutPageProps) {
   return (
     <main style='padding:0 0 96px;overflow:hidden'>
       <section style='max-width:1140px;margin:0 auto;padding:clamp(32px,6vw,80px) clamp(20px,5vw,72px) clamp(36px,5vw,64px)'>
-        <div style='display:grid;grid-template-columns:clamp(168px,24vw,288px) 1fr;gap:clamp(28px,5vw,64px);align-items:center'>
-          <div style='position:relative;aspect-ratio:1;border-radius:50%;background:#f2f2f2;border:1px solid var(--border);overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.18);animation:revealIn .85s cubic-bezier(.2,.7,.2,1) both'>
+        <div class='l-about-intro'>
+          <div class='l-about-avatar' style='position:relative;aspect-ratio:1;border-radius:50%;background:#f2f2f2;border:1px solid var(--border);overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.18);animation:revealIn .85s cubic-bezier(.2,.7,.2,1) both'>
             <div style='position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.13) 1.1px,transparent 1.5px);background-size:13px 13px;opacity:.55' />
             <div style='position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,rgba(0,0,0,.05))' />
             <img
