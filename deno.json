@@ -52,10 +52,8 @@
   "deploy": {
     "project": "tunthuntan-portfolio",
     "exclude": [
-      "**/node_modules"
-    ],
-    "include": [
-      "static/**"
+      "**/node_modules",
+      "_fresh/**"
     ],
     "entrypoint": "main.ts"
   }
