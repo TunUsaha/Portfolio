@@ -7,6 +7,8 @@ export default function App({ Component }: PageProps) {
         <meta charset='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title>Tun Usaha — Portfolio</title>
+        <link rel='icon' type='image/svg+xml' href='/images/face_favicon.svg' />
+        <link rel='apple-touch-icon' href='/images/face_favicon.svg' />
         <style
           dangerouslySetInnerHTML={{
             __html: `
